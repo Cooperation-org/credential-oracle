@@ -1,3 +1,4 @@
+import "./dotenv.js"; 
 import crypto from "crypto";
 import cors from "cors";
 import axios from "axios";
@@ -21,6 +22,7 @@ import {
 } from "./queries.js";
 import { scrapeFiverrProfile } from "./fiverr_scraper.js";
 import { PrismaClient } from "@prisma/client";
+
 
 const prisma = new PrismaClient();
 
@@ -93,7 +95,7 @@ app.post("/auth/github", async function (req, res) {
 
     const { html_url } = relevantUserData;
     const achievements = await getGithubUserAchievements(html_url);
-    const achievementsArray = achievementsAsArray(achievements);
+    const achievementsArray = achievementsAsArray(achievements);get
 
     let variables = {
       ...relevantUserData,
